@@ -1,0 +1,87 @@
+<index.html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite Especial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        .message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #005f73;
+        }
+    </style>
+</head>
+<body>
+    <div id="step1" class="message">🎉 Parabéns, você recebeu um convite! 🎉</div>
+    <div id="step2" class="message hidden">
+        🎉 Você foi convidado para o Churrasco de rato 🐀<br>
+        🕒 Hora: 3:30 da madrugada<br>
+        📍 Local: Casa da Helen<br>
+        Aceita participar? 🤔
+        <br><br>
+        <button onclick="acceptInvite()">✅ Sim</button>
+        <button onclick="declineInvite()">❌ Não</button>
+    </div>
+    <div id="step3" class="message hidden">🚫 Você foi banido da casa do clube do Mickey Mouse. 🏰</div>
+    <div id="step4" class="message hidden">
+        🍽 Vai trazer o pombo de sobremesa? 🕊
+        <br><br>
+        <button onclick="bringPigeon()">✅ Sim</button>
+        <button onclick="noPigeon()">❌ Não</button>
+    </div>
+    <div id="step5" class="message hidden">🎉 Parabéns, sua presença foi confirmada, te aguardo! 🎉</div>
+    <div id="step6" class="message hidden">🚫 Sem pombo de sobremesa não entra. 🚪</div>
+
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('step1').classList.add('hidden');
+                document.getElementById('step2').classList.remove('hidden');
+            }, 2000); // 2 segundos para mostrar a primeira mensagem
+        };
+
+        function acceptInvite() {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step4').classList.remove('hidden');
+        }
+
+        function declineInvite() {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.remove('hidden');
+        }
+
+        function bringPigeon() {
+            document.getElementById('step4').classList.add('hidden');
+            document.getElementById('step5').classList.remove('hidden');
+        }
+
+        function noPigeon() {
+            document.getElementById('step4').classList.add('hidden');
+            document.getElementById('step6').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
